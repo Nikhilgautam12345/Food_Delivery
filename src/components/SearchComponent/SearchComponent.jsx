@@ -1,18 +1,16 @@
-    import { useState,useEffect } from "react";
+    import { useState } from "react";
     import { useGetAllProductsQuery } from "../../features/counter/apiSlice"
     const SearchComponent = ({setFilteredData,setShowFilterModal}) => {
         const {data,isLoading} = useGetAllProductsQuery();
         const [allProduct,setAllProduct] = useState([])
         const [userInput,setUserInput] = useState ("")
 
-
-        // Getting all product data from redux store
-        useEffect(()=>{
-            if(!isLoading) setAllProduct(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);    
-        },[allProduct,data,isLoading])
+         
 
         // Filtering products from data
          const filterHandler = (e)=>{
+            if(!isLoading) setAllProduct(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);    
+
              setUserInput(e.target.value)
              if(e.target.value.length>0)
              {
@@ -27,7 +25,8 @@
              }
          }
 
-         console.log(data)
+         console.log(userInput)
+         console.log(allProduct)
              
     return (
         <>

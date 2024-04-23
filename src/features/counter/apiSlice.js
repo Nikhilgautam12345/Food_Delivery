@@ -10,7 +10,6 @@ export const productApi = createApi({
   endpoints: (builder) => ({
     getAllProducts: builder.query({
       query: () => {
-        
         return `dapi/restaurants/list/v5?lat=${lat}&lng=${long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
       },
     }),

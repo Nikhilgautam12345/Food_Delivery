@@ -1,4 +1,3 @@
-import React from 'react';
 import Imagebanner from '../../assets/imgbanner.jpg';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
