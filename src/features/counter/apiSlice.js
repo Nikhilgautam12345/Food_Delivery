@@ -1,6 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import Geolocation from "../Geolocation";
-const { lat, long } = await Geolocation();
+let lat ,long 
+navigator.geolocation.getCurrentPosition((p)=>{
+   lat = p.coords.latitude
+   long = p.coords.longitude
+    
+})
 //  console.log(lat,long)
 
 // Define a service using a base URL and expected endpoints

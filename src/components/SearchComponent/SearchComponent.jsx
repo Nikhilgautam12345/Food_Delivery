@@ -25,8 +25,6 @@
              }
          }
 
-         console.log(userInput)
-         console.log(allProduct)
              
     return (
         <>
