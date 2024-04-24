@@ -10,7 +10,7 @@ navigator.geolocation.getCurrentPosition((p)=>{
 // Define a service using a base URL and expected endpoints
 export const productApi = createApi({
   reducerPath: 'productApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://www.swiggy.com/' }),  
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://cors-anywhere.herokuapp.com/https://www.swiggy.com/' }),  
   endpoints: (builder) => ({
     getAllProducts: builder.query({
       query: () => {
