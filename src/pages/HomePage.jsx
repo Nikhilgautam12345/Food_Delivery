@@ -26,9 +26,12 @@ const HomePage = () => {
     )
   }
 
+
   const productListing = data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
   const carouselProducts = data?.data?.cards[0]?.card?.card?.imageGridCards?.info;
-  const allProducts = !productListing && data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+  const allProducts = productListing ? productListing : data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants 
+
+  
 
   return (
 
