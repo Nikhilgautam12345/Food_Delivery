@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-let lat ,long 
+lat =28.6456287,long =77.0909697
 navigator.geolocation.getCurrentPosition((p)=>{
    lat = p.coords.latitude
    long = p.coords.longitude
