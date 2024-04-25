@@ -44,7 +44,7 @@ const WatchListCard = ({ CartCard }) => {
     toast.success(`${CartCard.name} removed from cart`);
   }
 
-console.log(CartCard)
+
 
   return (
     <>

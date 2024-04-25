@@ -97,10 +97,10 @@ const Navigation = () => {
       {
         ( showfilterModal) && (
           <div className='filteredDatamodal md:my-16 sm:my-12 my-4'>
-           <div className="fixed top-0 right-0 w-full h-screen pt-40 bg-white overflow-y-auto z-40 "
+           <div className="fixed top-0 right-0 w-full h-screen pt-24 md:pt-32 sm:pt-28 bg-white overflow-y-auto z-40 "
            >
            <div  style={{ marginLeft: "10%", marginRight: "10%" }}  >
-           <div className='modalCardHeading  sm:text-2xl font-bold sm:pb-2 md:pb-4 sm:text-left pl-10 z-40'
+           <div className='modalCardHeading  sm:text-2xl font-bold sm:pb-2 md:pb-4 sm:text-left pl-5 z-40'
            
            >Search for Your Hotels</div>
 

@@ -3,6 +3,7 @@ import HotelCards from '../HomeHotelCards/HomeHotelCards'
 import './HomeHotelListing.css'
 
 const HotelListing = ({allProducts}) => {
+
   return (
     <>
     <div className='HotelListing md:my-16 sm:my-12 my-4'>

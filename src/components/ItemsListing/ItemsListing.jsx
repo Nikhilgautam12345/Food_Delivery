@@ -5,6 +5,7 @@ import { GrLinkNext } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
 
 const ItemsListing = ({ carouselProducts }) => {
+ 
   let itemsArray = carouselProducts;
   let [itemsStartIndex, setItemsStartIndex] = useState(0);
   let [itemsEndIndex, setItemsEndIndex] = useState(5);

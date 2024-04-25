@@ -7,4 +7,5 @@ export default defineConfig({
     exclude: ['react-icons'],
   },
   plugins: [react()],
+  
 })

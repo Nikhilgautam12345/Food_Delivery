@@ -27,15 +27,21 @@ const HomePage = () => {
   }
 
 
-  const allProducts =data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-  const carouselProducts =data?.data?.cards[0]?.card?.card?.imageGridCards?.info
+  const productListing = data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+  const carouselProducts = data?.data?.cards[0]?.card?.card?.imageGridCards?.info;
+  const allProducts = productListing ? productListing : data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants 
+
+  
 
   return (
 
     <>
     
       <BannerComponent/>
-      <ItemsListing carouselProducts={carouselProducts}/>
+      {
+        carouselProducts &&
+        <ItemsListing carouselProducts={carouselProducts}/>
+      }
       <HomeHotelListing allProducts={allProducts}/>
   
     </>

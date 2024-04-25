@@ -7,6 +7,17 @@ const WatchListCardListing = () => {
   const watchList = useSelector((state) => state.counter);
   let cartCards = watchList.products;
 
+  let newUser = { id: "1" };
+
+  const addId = async () => {
+    const res = await fetch("http://localhost:3000/user", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newUser),
+    });
+    return res.json();
+  };
+
   return (
     <>
       <div
@@ -28,7 +39,7 @@ const WatchListCardListing = () => {
           )}</span> 
           </div>
           <div className="flex justify-end py-2 pr-2">
-          <button className="text-white bg-orange-600 hover: hover:bg-orange-700 w-fit py-1 px-4 rounded-full">Pay</button>
+          <button className="text-white bg-orange-600 hover: hover:bg-orange-700 w-fit py-1 px-4 rounded-full" onClick={addId}>Pay</button>
           </div>
         
         </div>
