@@ -30,7 +30,6 @@
                  return
              }
          }
-     console.log(allProduct)
              
     return (
         <>
