@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
   let lat =28.6456287,long =77.0909697
   navigator.geolocation.getCurrentPosition((p)=>{
@@ -18,6 +19,29 @@
         },
       }),
       getIndividualProduct: builder.query({
+=======
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+let lat =28.6456287,long =77.0909697
+navigator.geolocation.getCurrentPosition((p)=>{
+   lat = p.coords.latitude
+   long = p.coords.longitude
+    
+})
+//  console.log(lat,long)
+
+// Define a service using a base URL and expected endpoints
+export const productApi = createApi({
+  reducerPath: 'productApi',
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://cors-anywhere.herokuapp.com/https://www.swiggy.com/' }),  
+  endpoints: (builder) => ({
+    getAllProducts: builder.query({
+      query: () => {
+        return `dapi/restaurants/list/v5?lat=${lat}&lng=${long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
+      },
+    }),
+    getIndividualProduct: builder.query({
+      query: (productId) => {
+>>>>>>> 7860446d3f492461337e32715664bde4dc1102d4
       
         query: (productId) => {
         
