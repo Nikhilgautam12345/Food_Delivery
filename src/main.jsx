@@ -20,20 +20,21 @@ const router = createBrowserRouter([
       { path: "home", element: <HomePage /> },
       { path: ":productId", element: <IndividualHotel /> },
       { path: ":id/:cuisine", element: <ItemHotels /> },
-      {
-        path: "watchlist",
-            element: <WatchlistPage />,
-      }
+     
     ],
   },{
     path: "*",
         element: <ErrorPage />,
+  },
+  {
+    path: "watchlist",
+        element: <WatchlistPage />,
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>  
     <RouterProvider router={router} />
-    <Toaster  position="top-left" toastOptions={{duration:500}}/>
+    <Toaster  position="top-left" toastOptions={{duration:1000}}/>
   </Provider>
 );

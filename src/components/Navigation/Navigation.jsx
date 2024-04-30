@@ -8,6 +8,11 @@ import SignInPopup from "../SignInPopup/SignInPopup";
 import { useSelector } from "react-redux";
 import SearchComponent from "../SearchComponent/SearchComponent";
 import HotelCards from "../HomeHotelCards/HomeHotelCards";
+import {onAuthStateChanged} from "firebase/auth"
+import { auth } from "../../firebase/firebaseConfig";
+import Logout from "../Logout/Logout";
+import { Randomcolour } from "../../utils/Randomcolour";
+
 
 const Navigation = () => {
   const [showSignInPopup, setShowSignInPopup] = useState(false);
@@ -15,11 +20,43 @@ const Navigation = () => {
   const [filtereddata , setFilteredData] = useState([])
   const watchList = useSelector((state) => state.counter);
   const [showfilterModal, setShowFilterModal] = useState(false)
+  const [username, setUsername] = useState(null);
+  const[logoutModal, setLogoutModal] = useState(false)
+
 
   //Cart from redux store
   useEffect(() => {
       setCartQuantity(watchList.products.length);
   }, [watchList]);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+
+          const response = await fetch(
+            "https://food-delivery-227e4-default-rtdb.europe-west1.firebasedatabase.app/UserData.json"
+          );
+          if (!response.ok) {
+            throw new Error("Failed to fetch data from the database");
+          }
+          const data = await response.json();
+          const emailToNameMap = {};
+          Object.keys(data).forEach((key) => {
+            const obj = data[key];
+            const { email, name } = obj;
+            emailToNameMap[email] = name;
+          });
+          // Store the user's name in the state variable 'username'
+          const username = emailToNameMap[user.email];
+          setUsername(username);
+         
+        }
+    });
+
+
+    return () => unsubscribe();
+  }, [username]);
+  
 
 
   //Sigin Popup Handlers
@@ -55,13 +92,28 @@ const Navigation = () => {
         {/*Signin Logo*/}  
         <div className="flex items-center">
           <div className="flex font-medium items-center sm:mx-2">
-            <span className="flex px-1 text-gray-600 hover:text-orange-600 cursor-pointer" onClick={handleSignInClick}>
-              <RxAvatar className="size-7 " />
-              <span className="hidden sm:block ">Sign In</span>
-            </span>
-            {
+          <span className="flex px-1 items-center text-gray-600 hover:text-orange-600 cursor-pointer" >
               
-            }
+              
+              {username
+              ?
+              <div className="flex items-center justify-center" onClick={()=>setLogoutModal(true)}>
+              <div className="w-7 h-7 rounded-full items-center text-white flex mr-1 justify-center" style={{ backgroundColor: Randomcolour() }}>
+              {username.slice(0,1)}
+              </div>{username}
+              </div>
+              :
+              <>
+              <div  className="flex items-center justify-center" onClick={handleSignInClick}>
+              <RxAvatar className="size-7 " /><span className="hidden sm:block ">Sign In</span>
+              </div>
+             
+              </>
+              }
+          
+            </span>
+          
+          
 
             {/*Watchlist Logo*/}
             <NavLink
@@ -89,7 +141,7 @@ const Navigation = () => {
      {/* signin modal */}
       {showSignInPopup && (
         <div className="modal-overlay">
-          <SignInPopup handleCloseModal={handleCloseSiginModal}/>
+        <SignInPopup handleCloseModal={handleCloseSiginModal} setUsername={setUsername}/>
         </div>
       )}
 
@@ -114,6 +166,10 @@ const Navigation = () => {
            </div>
           </div>
         )
+      }
+
+      {logoutModal &&
+      <Logout  setLogoutModal={setLogoutModal} logoutModal={logoutModal}/>
       }
 
     </>

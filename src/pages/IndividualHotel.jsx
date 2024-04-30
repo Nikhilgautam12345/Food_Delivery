@@ -8,7 +8,9 @@ import '../components/FoodItemListing/FoodItemListing.css'
 
 const IndividualHotel = () => {
   let { productId } = useParams();
-  const { data, isLoading } = useGetIndividualProductQuery(productId);
+  let { cuisine } = useParams();
+  console.log(productId)
+  const { data, isLoading } = useGetIndividualProductQuery(productId,cuisine);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -19,11 +21,12 @@ const IndividualHotel = () => {
     return <IndiPageShimmer />;
   }
 
-  let groupedCardIndex = data.data.cards.length-1
-  let hotelItemsInfo =data.data.cards[groupedCardIndex]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+
+
+  let groupedCardIndex = data?.data?.cards.length-1
+  let hotelItemsInfo =data?.data?.cards[groupedCardIndex]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
   let hotelInfo = data?.data?.cards[2]?.card?.card?.info;
 
-  
 
   return (
     <div

@@ -14,6 +14,11 @@
     border-radius: 50%;
     background-color: #ccc;
   }
+
+  .slick-dots li button::before
+  {
+    content: none !important;
+  }
   
   .slick-dots li.slick-active button {
     background-color: #000;

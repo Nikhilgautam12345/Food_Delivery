@@ -10,7 +10,7 @@ const HomePage = () => {
 
   if(isError)
   {
-    return <div></div>
+    return <div className='items-center flex justify-center text-4xl font-semibold'>Error...</div>
   }
 
   if(isLoading)
