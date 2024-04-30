@@ -20,30 +20,27 @@ const WatchListCardListing = () => {
 
   return (
     <>
-      <div
-        className="WatchListContainer py-8 sm:text-2xl  sm:py-16 font-semibold"
-        style={{ marginLeft: "10%", marginRight: "10%" }}
-      >
-        <div className="text-3xl">WatchList</div>
-        <div>
-          {cartCards.map((CartCard, index) => (
-            <WatchListCard key={index} CartCard={CartCard} />
-          ))}
-        </div>
-        <div className="px-10 mt-4 py-4  border">
-        <div className="justify-between flex items-center">
-        <span className="text-xl"> Total: </span>
-        <span className="text-green-800 text-xl font-bold px-4">₹{cartCards.reduce(
-            (total, product) => total + product.price * product.quantity,
-            0
-          )}</span> 
-          </div>
-          <div className="flex justify-end py-2 pr-2">
-          <button className="text-white bg-orange-600 hover: hover:bg-orange-700 w-fit py-1 px-4 rounded-full" onClick={addId}>Pay</button>
-          </div>
-        
-        </div>
-      </div>
+   <div className="WatchListContainer py-8 sm:text-2xl sm:py-16 font-semibold mx-auto max-w-4xl">
+  <div className="text-3xl mb-6">WatchList</div>
+  {cartCards.map((CartCard, index) => (
+    <WatchListCard key={index} CartCard={CartCard} />
+  ))}
+  <div className="px-6 mt-6 py-4 border">
+    <div className="flex justify-between items-center">
+      <span className="text-xl">Total:</span>
+      <span className="text-green-800 text-xl font-bold pr-3">₹{cartCards.reduce(
+        (total, product) => total + product.price * product.quantity,
+        0
+      )}</span>
+    </div>
+    <div className="flex justify-end mt-4">
+      <button className="px-5 py-1 bg-orange-600 text-white font-semibold rounded-full hover:bg-orange-700 focus:outline-none" onClick={addId}>
+        Pay
+      </button>
+    </div>
+  </div>
+</div>
+
     </>
   );
 };

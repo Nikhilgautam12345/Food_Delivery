@@ -48,47 +48,38 @@ const WatchListCard = ({ CartCard }) => {
 
   return (
     <>
-      <div className=" pt-8">
-        <div className="watchListItemContainer flex justify-between border p-3 ">
-          <div className="watchListItemDesc ">
-            <div
-              className="watchListItemName sm:text-xl font-medium text-gray-700 cursor-pointer"
-              onClick={pageNavigate}
-              data-id={CartCard.id}
-            >
-              {CartCard.name}
-            </div>
-            <div >₹{CartCard.price} * {CartCard.quantity} = {CartCard.price * CartCard.quantity}</div>
-          </div>
-          <div className="watchListItemAmount">
-            <div className="bg-white border flex items-center border-green-900 rounded h-fit w-fit">
-              <span>
-                <button
-                  className=" text-green-900 sm:p-2"
-                  onClick={handleRemovecart}
-                >
-                  <IoIosRemove />
-                </button>
-              </span>
-              <span className="w-8 justify-center flex">
-                <div className=" text-green-900 sm:p-2">
-                  {CartCard.quantity}
-                </div>
-              </span>
-              <span
-                className=" cursor-pointer"
-                onClick={handleAddCart}
-              >
-                <button className="  text-green-900 sm:p-2" >
-                  <IoIosAdd />
-                 
-                </button>
-
-              </span>
-            </div>
-          </div>
-        </div>
+  <div className="pt-8">
+  <div className="watchListItemContainer flex justify-between border p-3 ">
+    <div className="watchListItemDesc">
+      <div
+        className="watchListItemName sm:text-xl font-medium text-gray-700 cursor-pointer"
+        onClick={pageNavigate}
+        data-id={CartCard.id}
+      >
+        {CartCard.name}
       </div>
+      <div className="text-gray-600">₹{CartCard.price} * {CartCard.quantity} = ₹{CartCard.price * CartCard.quantity}</div>
+    </div>
+    <div className="watchListItemAmount">
+      <div className="bg-white border flex items-center border-green-900 rounded h-fit w-fit">
+        <button
+          className="text-green-900 p-2 focus:outline-none"
+          onClick={handleRemovecart}
+        >
+          <IoIosRemove />
+        </button>
+        <div className="p-2 text-green-900">{CartCard.quantity}</div>
+        <button
+          className="text-green-900 p-2 focus:outline-none"
+          onClick={handleAddCart}
+        >
+          <IoIosAdd />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
       
     </>
   );

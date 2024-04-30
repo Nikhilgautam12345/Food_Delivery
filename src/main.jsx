@@ -20,16 +20,16 @@ const router = createBrowserRouter([
       { path: "home", element: <HomePage /> },
       { path: ":productId", element: <IndividualHotel /> },
       { path: ":id/:cuisine", element: <ItemHotels /> },
-     
+      {
+        path: "watchlist",
+            element: <WatchlistPage />,
+      }
     ],
   },{
     path: "*",
         element: <ErrorPage />,
   },
-  {
-    path: "watchlist",
-        element: <WatchlistPage />,
-  }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
