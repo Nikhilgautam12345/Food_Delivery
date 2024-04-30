@@ -9,7 +9,6 @@ import '../components/FoodItemListing/FoodItemListing.css'
 const IndividualHotel = () => {
   let { productId } = useParams();
   let { cuisine } = useParams();
-  console.log(productId)
   const { data, isLoading } = useGetIndividualProductQuery(productId,cuisine);
 
   useEffect(() => {
