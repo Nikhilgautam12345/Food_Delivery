@@ -73,9 +73,8 @@ const SignInPopup = ({ handleCloseModal,setUsername }) => {
       setUsername(nameref.current.value)
       handleCloseModal();
     } catch (error) {
-      const errorCode = error.code;
       const errorMessage = error.message;
-      setErrorMsg(errorCode + "-" + errorMessage);
+      setErrorMsg(errorMessage);
     }
   };
 
@@ -93,9 +92,8 @@ const SignInPopup = ({ handleCloseModal,setUsername }) => {
         handleCloseModal();
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        setLoginErrorMsg(errorCode + "-" + errorMessage);
+        setLoginErrorMsg(errorMessage);
       });
   };
 

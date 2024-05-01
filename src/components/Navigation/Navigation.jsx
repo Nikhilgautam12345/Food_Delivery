@@ -76,7 +76,7 @@ const Navigation = () => {
 
         {/*Logo Container*/}
           <NavLink to="/">
-            <div className="logoContainer sm:ml-5 flex items-center mx-4 transform transition duration-300 ease-in-out hover:scale-110">
+            <div className="logoContainer sm:ml-5 flex items-center ml-4 sm:mx-4 transform transition duration-300 ease-in-out hover:scale-110">
               <span className="logoImageContainer">
                 <img src={SwiggyImage} className="logoImage" alt="Swiggy Logo" />
               </span>
@@ -100,7 +100,7 @@ const Navigation = () => {
               <div className="flex items-center justify-center" onClick={()=>setLogoutModal(true)}>
               <div className="w-7 h-7 rounded-full items-center text-white flex mr-1 justify-center" style={{ backgroundColor: Randomcolour() }}>
               {username.slice(0,1)}
-              </div>{username}
+              </div><span className="hidden sm:block">{username}</span>
               </div>
               :
               <>

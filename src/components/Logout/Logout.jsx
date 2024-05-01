@@ -31,7 +31,7 @@ const Logout = ({ setLogoutModal }) => {
   </div>
   <div className="flex justify-center mt-6">
     <button onClick={SignOut} className="px-4 py-2 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 focus:outline-none focus:ring focus:ring-orange-400">
-      Confirm Logout
+      Confirm
     </button>
   </div>
 </div>

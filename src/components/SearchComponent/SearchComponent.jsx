@@ -36,7 +36,7 @@
             <div className="SearchContainer font-medium flex justify-center grow sm:ml-5">
                 <input
                 type="text"
-                className="bg-gray-50  sm:px-4 px-2 md:py-5 py-3 lg:w-3/5 w-4/5 rounded  border focus:outline-none placeholder:text-xs md:placeholder:text-base placeholder-gray-400  focus:border-slate-700  border-slate-400 h-7"
+                className="bg-gray-50  sm:px-4 px-2 md:py-5 py-3 lg:w-3/5 w-9/12 rounded  border focus:outline-none placeholder:text-xs md:placeholder:text-base placeholder-gray-400  focus:border-slate-700  border-slate-400 h-7"
                 placeholder="Search for restaurants"
                 onChange={filterHandler}
                 value={userInput}
